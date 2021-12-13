@@ -1,0 +1,8 @@
+before prints: 40 seconds
+after prints: 20 seconds
+
+
+what we need to change
+x- print - removed
+- read from memory instead from disk
+- measure the changes with time
