@@ -1,0 +1,2 @@
+put 5 2 0;put 4 2 0;put 3 2 0;put 2 2 0;put 1 2 0
+get 2 1 0;get 2 2 0;get 2 3 0;get 2 4 0;get 2 5 0
