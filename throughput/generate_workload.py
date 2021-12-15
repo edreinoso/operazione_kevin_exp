@@ -49,8 +49,8 @@ for client_id in range(number_of_clients):
 
 # put random value to every key
 file = open(f'ops_files/ops0.txt', "w")
-for key in range(100):
-    value = random.randint(0, 1024)
+for key in range(1024):
+    value = random.randint(0, 1000000000)
     file.write(f'put {key} {value} 0\n')
 file.close()
 
