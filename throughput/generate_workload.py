@@ -48,18 +48,22 @@ for client_id in range(number_of_clients):
     file.close()
 
 # put random value to every key
-file = open(f'ops_files/ops0.txt', "w")
-for key in range(1024):
-    value = random.randint(0, 1000000000)
-    file.write(f'put {key} {value} 0\n')
-file.close()
+# file = open(f'ops_files/ops0.txt', "w")
+# for key in range(100):
+#     value = random.randint(0, 1024)
+#     file.write(f'put {key} {value} 0\n')
+# file.close()
 
 
 # generate client_start.sh
 server1 = 'local'
 server2 = 'localhost'
-file = open(f'client_start.sh', "w")
-file.write(f"./build/install/sometest/bin/key-val-client {server1} {server2} 9100 9102 ops_files/ops0.txt \n") # put random value to every key
-for key in range(number_of_clients):
-    file.write(f"./build/install/sometest/bin/key-val-client {server1} {server2} 9100 9102 ops_files/ops{key+1}.txt &\n")
+file = open(f'clients_start.sh', "w")
+#file.write(f"./build/install/sometest/bin/key-val-client {server1} {server2} 9100 9102 ops_files/ops0.txt \n") # put random value to every key
+for client_id in range(number_of_clients):
+    file.write(f"./build/install/sometest/bin/key-val-client {server1} {server2} 9100 9102 ops_files/ops{client_id+1}.txt ")
+    if client_id != number_of_clients - 1:
+        file.write("& \n")
+    else:
+        file.write("\n")
 file.close()
