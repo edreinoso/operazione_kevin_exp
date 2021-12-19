@@ -19,17 +19,17 @@ x = np.arange(len(labels))  # the label locations
 width = 0.15  # the width of the bars
 
 fig, ax = plt.subplots(dpi = 200)
-rects1 = ax.bar(x - 0.3, gets_50, width, label='50% gets / 50% puts - sync_at_read', color = 'lightsteelblue')
-rects2 = ax.bar(x - 0.15, gets_95, width, label='95% gets / 5% puts - sync_at_read',
+rects1 = ax.bar(x - 0.3, gets_50, width, label='50% gets / 50% puts - sync before read', color = 'lightsteelblue')
+rects2 = ax.bar(x - 0.15, gets_50_2, width, label='50% gets / 50% puts - sync at write',
 color = 'royalblue')
 
-rects3 = ax.bar(x + 0.15, gets_50_2, width, label='50% gets / 50% puts - server_reads_write_sync',
+rects3 = ax.bar(x + 0.15, gets_95, width, label='95% gets / 5% puts - sync before read',
 color = 'limegreen')
-rects4 = ax.bar(x + 0.3, gets_95_2, width, label='95% gets / 5% puts - server_reads_write_sync',
+rects4 = ax.bar(x + 0.3, gets_95_2, width, label='95% gets / 5% puts - sync at write',
 color = 'darkgreen')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Time(seconds)')
+ax.set_ylabel('Time (seconds)')
 ax.set_xlabel('Number of operations')
 ax.set_title('20 clients')
 ax.set_xticks(x)
